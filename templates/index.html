@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontawesome/css/fontawesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontawesome/css/brands.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontawesome/css/solid.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<head>
+    <title>SafeNet AI</title>
+</head>
+<body>
+    <div class="header__container">
+        <h1>SafeNet AI</h1>
+        <h2>Cyberbullying Detector</h2>
+    </div>
+    <div class="main__container">
+        
+        <form class="form__container" action="{{ url_for('prediction') }}" method="post">
+            <input type="text" id="tweet" name="tweet" class="input" name="txt" onmouseout="this.value = ''; this.blur();" required>
+            <i class="fas fa-search"></i>
+        </form>
+        
+    </div>
+    <div class="response__container">
+        {% if prediction %}
+            <h1>{{ prediction }}</h1>
+        {% endif %}
+    </div>
+</body>
+</html>
